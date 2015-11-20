@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
+  resources :lists
   devise_for :users
-  devise_scope :user do
-    root to: 'devise/sessions#new'
-  end
+  root to: 'lists#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

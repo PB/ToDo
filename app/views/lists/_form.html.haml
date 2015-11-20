@@ -1,0 +1,11 @@
+= form_for list, html: { class: 'form-class' } do |f|
+  - if list.errors.any?
+    = render partial: 'alerts', collection: list.errors.full_messages, as: :message
+
+  .row
+    .input-field.col.s12
+      = f.text_field :name, length: '100', class: 'validate'
+      = f.label :name
+
+  %button.btn.waves-effect.waves-light.btn-large{name: 'action', type: 'submit'}
+    Save
