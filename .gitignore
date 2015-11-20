@@ -21,3 +21,6 @@
 
 # Rubocop
 .rubocop_todo.yml
+
+# Coverage
+/coverage/
