@@ -1,7 +1,7 @@
 BOSearch
 ================
-[![Code Climate](https://codeclimate.com/github/PB/BOSearch/badges/gpa.svg)](https://codeclimate.com/github/PB/BOSearch)
-[![Test Coverage](https://codeclimate.com/github/PB/BOSearch/badges/coverage.svg)](https://codeclimate.com/github/PB/BOSearch/coverage)
+[![Code Climate](https://codeclimate.com/github/PB/ToDo/badges/gpa.svg)](https://codeclimate.com/github/PB/ToDo)
+[![Test Coverage](https://codeclimate.com/github/PB/ToDo/badges/coverage.svg)](https://codeclimate.com/github/PB/ToDo/coverage)
 
 Ruby on Rails
 -------------
