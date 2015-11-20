@@ -1,0 +1,6 @@
+- if notice
+  :javascript
+    Materialize.toast('<i class="material-icons">done</i> &nbsp;&nbsp;&nbsp; #{notice}', 4000, 'green darken-1');
+- if alert
+  :javascript
+    Materialize.toast('<i class="material-icons">error_outline</i> &nbsp;&nbsp;&nbsp; #{alert}', 4000, 'red darken-1');

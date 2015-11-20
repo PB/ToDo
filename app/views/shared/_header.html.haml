@@ -1,0 +1,9 @@
+%nav
+  .nav-wrapper
+    = link_to('ToDo', root_path, class: 'brand-logo')
+    %a.button-collapse{"data-activates" => "mobile-demo", :href => "#"}
+      %i.material-icons menu
+    %ul.right.hide-on-med-and-down
+      = render 'shared/menu_links'
+    %ul#mobile-demo.side-nav
+      = render 'shared/menu_links'

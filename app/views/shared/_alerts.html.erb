@@ -1,0 +1,12 @@
+<%# Not nice but only a demo %>
+<% if notice %>
+  <script>
+    Materialize.toast('<i class="material-icons">done</i> &nbsp;&nbsp;&nbsp; <%= notice %>', 4000, 'green darken-1');
+  </script>
+<% end %>
+
+<% if alert %>
+  <script>
+    Materialize.toast('<i class="material-icons">error_outline</i> &nbsp;&nbsp;&nbsp; <%= alert %>', 4000, 'red darken-1');
+  </script>
+<% end %>

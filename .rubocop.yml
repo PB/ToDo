@@ -1,0 +1,19 @@
+# inherit_from: .rubocop_todo.yml
+AllCops:
+  Include:
+    - Rakefile
+    - config.ru
+  Exclude:
+    - db/schema.rb
+    - db/**/*
+
+Metrics/LineLength:
+  Max: 130
+  Exclude:
+    - 'config/initializers/devise.rb'
+
+Lint/HandleExceptions:
+  Exclude:
+    - 'bin/rails'
+    - 'bin/rake'
+    - 'bin/rspec'

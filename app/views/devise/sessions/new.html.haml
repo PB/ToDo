@@ -1,0 +1,22 @@
+.row
+  .col.s12.m12.l8
+    %h5 Log in
+    = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-class'}) do |f|
+      .row
+        .input-field.col.s12
+          %i.material-icons.prefix email
+          = f.email_field :email, autofocus: true, class: 'validate', autocomplete: 'off'
+          = f.label :email
+      .row
+        .input-field.col.s12
+          %i.material-icons.prefix lock
+          = f.password_field :password, class: 'validate', autocomplete: 'off'
+          = f.label :password
+      - if devise_mapping.rememberable?
+        .row
+          .input-field
+            = f.check_box :remember_me
+            = f.label :remember_me
+      %button.btn.waves-effect.waves-light.btn-large{:name => "action", :type => "submit"}
+        Submit
+    = render "devise/shared/links"
