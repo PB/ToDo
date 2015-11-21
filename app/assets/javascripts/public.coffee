@@ -1,6 +1,6 @@
 ready = ->
   socky = new Socky.Client('ws://0.0.0.0:3001/websocket/to_do')
-  channel = socky.subscribe("2");
+  channel = socky.subscribe($('#channel').text());
   channel.bind "create_task", (task) ->
     $('.collection').append('<li class="collection-item">' +
         '<input data-list-id="' + task.list_id + '" disabled="disabled" id="' + task.id + '" type="checkbox">' +
