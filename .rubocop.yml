@@ -6,6 +6,7 @@ AllCops:
   Exclude:
     - db/schema.rb
     - db/**/*
+    - socky/config.ru
 
 Metrics/LineLength:
   Max: 130

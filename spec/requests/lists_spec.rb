@@ -7,4 +7,12 @@ RSpec.describe 'Lists', type: :request do
       expect(response).to have_http_status(302)
     end
   end
+
+  describe 'GET /public-view' do
+    it 'should return public view of list' do
+      list = FactoryGirl.create(:list, user: FactoryGirl.create(:user))
+      get public_view_path(list.slug)
+      expect(response).to have_http_status(200)
+    end
+  end
 end

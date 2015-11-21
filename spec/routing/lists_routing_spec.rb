@@ -33,5 +33,9 @@ RSpec.describe ListsController, type: :routing do
     it 'routes to #destroy' do
       expect(delete: '/lists/1').to route_to('lists#destroy', id: '1')
     end
+
+    it 'routes to #public_view' do
+      expect(get: '/public-view/test').to route_to('lists#public_view', slug: 'test')
+    end
   end
 end

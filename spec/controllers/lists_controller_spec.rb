@@ -52,6 +52,14 @@ RSpec.describe ListsController, type: :controller do
     end
   end
 
+  describe 'GET #public_view' do
+    it 'assigns the requested list as @list' do
+      list = List.create! valid_attributes
+      get :public_view, { slug: list.slug }, valid_session
+      expect(assigns(:list)).to eq(list)
+    end
+  end
+
   describe 'GET #new' do
     it 'assigns a new list as @list' do
       get :new, {}, valid_session

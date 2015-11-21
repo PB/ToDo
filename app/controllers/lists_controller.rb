@@ -1,6 +1,6 @@
 # List controller
 class ListsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :public_view
   before_action :set_list, only: [:show, :edit, :update, :destroy]
 
   # GET /lists
@@ -55,6 +55,11 @@ class ListsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to lists_url, notice: 'List was successfully destroyed.' }
     end
+  end
+
+  # GET /lists/1
+  def public_view
+    @list = List.find_by_slug!(params[:slug])
   end
 
   private

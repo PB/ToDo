@@ -1,9 +1,9 @@
 require 'socky/server'
 
 options = {
-  :debug => true,
-  :applications => {
-    :to_do => 'to_do_secret_123',
+  debug: true,
+  applications: {
+    to_do: 'to_do_secret_123'
   }
 }
 

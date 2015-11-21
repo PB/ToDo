@@ -35,7 +35,6 @@ RSpec.describe TasksController, type: :controller do
         expect(assigns(:task)).to be_a(Task)
         expect(assigns(:task)).to be_persisted
       end
-
     end
 
     context 'with invalid params' do
@@ -63,5 +62,4 @@ RSpec.describe TasksController, type: :controller do
       expect(task.status).to eq(true)
     end
   end
-
 end

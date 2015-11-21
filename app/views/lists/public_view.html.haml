@@ -1,0 +1,5 @@
+%p
+  %ul.collection.with-header
+    %li.collection-header
+      %h4= @list.name
+    =render partial: 'tasks/public_task', collection: @list.tasks, as: :task

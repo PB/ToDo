@@ -1,0 +1,4 @@
+- if !task.name.nil?
+  %li.collection-item
+    %input{type: 'checkbox', id: task.id, disabled: 'disabled', data: {list_id: task.list_id}, checked: (task.status ? 'checked': nil)}
+    %label{for: task.id, class: (task.status ? 'strike':nil) }= task.name
