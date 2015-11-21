@@ -8,6 +8,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
+        create_task @task
         format.js
       else
         format.js { render json: 'Error', status: :unprocessable_entity }
@@ -17,6 +18,7 @@ class TasksController < ApplicationController
 
   def destroy
     @list.tasks.destroy(params[:id])
+    delete_task(params[:id])
     respond_to do |format|
       format.js
     end
@@ -28,8 +30,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        # sc = Socky::Client.new('http://0.0.0.0:3001/http/', '')
-        # sc.trigger!('my_event', :channel => 'channel2', :data => 'my data')
+        change_status @task
         format.json { render json: @task.status }
       else
         format.js { render json: 'Error', status: :unprocessable_entity }
@@ -46,5 +47,21 @@ class TasksController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def task_params
     params.require(:task).permit(:name)
+  end
+
+  def set_ws
+    Socky::Client.new('http://0.0.0.0:3001/http/to_do', 'to_do_secret_123')
+  end
+
+  def create_task(task)
+    set_ws.trigger!('create_task', channel: @list.slug, data: task)
+  end
+
+  def delete_task(id)
+    set_ws.trigger!('delete_task', channel: @list.slug, data: id)
+  end
+
+  def change_status(task)
+    set_ws.trigger!('change_status', channel: @list.slug, data: task)
   end
 end
