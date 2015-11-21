@@ -28,6 +28,8 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
+        # sc = Socky::Client.new('http://0.0.0.0:3001/http/', '')
+        # sc.trigger!('my_event', :channel => 'channel2', :data => 'my data')
         format.json { render json: @task.status }
       else
         format.js { render json: 'Error', status: :unprocessable_entity }

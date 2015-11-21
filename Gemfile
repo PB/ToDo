@@ -15,6 +15,9 @@ gem 'haml-rails'
 gem 'pg'
 gem 'squeel'
 gem 'awesome_print'
+# Socky
+gem 'socky-server'
+gem 'socky-client'
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
