@@ -10,6 +10,6 @@ class List < ActiveRecord::Base
   validates :slug, uniqueness: true
 
   def make_slug
-    self.slug = (0...50).map { ('a'..'z').to_a[rand(26)] }.join
+    self.slug = (0...10).map { ('a'..'z').to_a[rand(26)] }.join
   end
 end
