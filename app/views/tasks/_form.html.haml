@@ -1,0 +1,13 @@
+= form_for(task, url: list_tasks_path(list_id: task.list_id), html: { class: 'form-class form-task' }, remote: :true) do |f|
+  - if task.errors.any?
+    = render partial: 'lists/alerts', collection: task.errors.full_messages, as: :message
+
+  = hidden_field_tag :authenticity_token, form_authenticity_token
+
+  .row
+    .input-field.col.s10
+      = f.text_field :name, length: '255', class: 'validate'
+      = f.label :name
+
+    %button.btn.waves-effect.waves-light.btn{name: 'action', type: 'submit'}
+      Add

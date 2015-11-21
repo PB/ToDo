@@ -6,15 +6,21 @@ ready = ->
   Waves.displayEffect()
   $(".button-collapse").sideNav()
   $('input').characterCounter()
-
+  $('.character-counter').not(':first').remove()
 
   # Before from submit
-  $('.form-class').submit (e)->
+  $('.form-list').submit (e)->
     e.preventDefault()
     if (validateForm())
       $('.form-class')[0].submit()
     else
       showError('Please fill in all fields')
+
+  $(".form-task").on("ajax:success", (e, data, status, xhr) ->
+    $('.form-task')[0].reset();
+  ).on "ajax:error", (e, xhr, status, error) ->
+    validateForm()
+    showError('Please fill in all fields')
 
 $(document).ready(ready)
 $(document).on('page:load', ready)

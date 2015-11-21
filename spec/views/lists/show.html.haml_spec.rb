@@ -8,6 +8,9 @@ RSpec.describe 'lists/show', type: :view do
                             name: 'Name',
                             user: @user
     ))
+
+    @tasks = assign(:task, Task.create!(list: @list, name: 'test', status: false))
+    @new_task = @list.tasks.new
   end
 
   it 'renders attributes in <p>' do
