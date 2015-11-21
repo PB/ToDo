@@ -1,5 +1,5 @@
 ready = ->
-  socky = new Socky.Client('wss://murmuring-sands-8669.herokuapp.com/websocket/to_do')
+  socky = new Socky.Client('wss://morning-taiga-3393.herokuapp.com/websocket/to_do')
   channel = socky.subscribe($('#channel').text());
   channel.bind "create_task", (task) ->
     $('.collection').append('<li class="collection-item">' +

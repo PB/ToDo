@@ -50,7 +50,7 @@ class TasksController < ApplicationController
   end
 
   def set_ws
-    Socky::Client.new('https://murmuring-sands-8669.herokuapp.com/http/to_do', 'to_do_secret_123')
+    Socky::Client.new('https://morning-taiga-3393.herokuapp.com/http/to_do', 'to_do_secret_123')
   end
 
   def create_task(task)
