@@ -8,7 +8,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        create_task @task
+        push('create_task', @task)
         format.js
       else
         format.js { render json: 'Error', status: :unprocessable_entity }
@@ -18,7 +18,7 @@ class TasksController < ApplicationController
 
   def destroy
     @list.tasks.destroy(params[:id])
-    delete_task(params[:id])
+    push('delete_task', params[:id])
     respond_to do |format|
       format.js
     end
@@ -30,7 +30,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        change_status @task
+        push('change_status', @task)
         format.json { render json: @task.status }
       else
         format.js { render json: 'Error', status: :unprocessable_entity }
@@ -50,18 +50,10 @@ class TasksController < ApplicationController
   end
 
   def set_ws
-    Socky::Client.new('https://morning-taiga-3393.herokuapp.com/http/to_do', 'to_do_secret_123')
+    Socky::Client.new("#{ENV['http_host']}/http/to_do", ENV['ws_pass'])
   end
 
-  def create_task(task)
-    set_ws.trigger!('create_task', channel: @list.slug, data: task)
-  end
-
-  def delete_task(id)
-    set_ws.trigger!('delete_task', channel: @list.slug, data: id)
-  end
-
-  def change_status(task)
-    set_ws.trigger!('change_status', channel: @list.slug, data: task)
+  def push(event, data)
+    set_ws.trigger!(event, channel: @list.slug, data: data)
   end
 end

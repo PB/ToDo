@@ -1,0 +1,8 @@
+ws_host: 'ws://0.0.0.0:3001'
+http_host: 'http://0.0.0.0:3001'
+ws_pass: 'password'
+
+production:
+  ws_host: ''
+  http_host: ''
+  ws_pass: ''

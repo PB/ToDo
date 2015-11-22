@@ -1,7 +1,9 @@
-%p
+%p.public-view
   %ul.collection.with-header
     %li.collection-header
       %h4= @list.name
     =render partial: 'tasks/public_task', collection: @list.tasks, as: :task
 
-#channel= @list.slug
+:javascript
+  var ws_host = "#{ENV['ws_host']}"
+  var channel_hash = "#{@list.slug}"

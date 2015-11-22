@@ -15,6 +15,7 @@ gem 'haml-rails'
 gem 'pg'
 gem 'squeel'
 gem 'awesome_print'
+gem 'figaro'
 # Socky
 gem 'socky-server'
 gem 'socky-client'
