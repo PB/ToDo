@@ -320,6 +320,7 @@ DEPENDENCIES
   capybara-webkit
   codeclimate-test-reporter
   coffee-rails (~> 4.1.0)
+  crack
   database_cleaner
   devise
   factory_girl_rails
