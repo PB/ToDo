@@ -16,11 +16,15 @@ ready = ->
     else
       showError('Please fill in all fields')
 
-  $(".form-task").on("ajax:success", (e, data, status, xhr) ->
-    $('.form-task')[0].reset();
+  $(".form-task").on('submit', ->
+    $('#btn-task').prop('disabled', true)
+  ).on("ajax:success", (e, data, status, xhr) ->
+    $('.form-task')[0].reset()
+    $('#btn-task').prop('disabled', false)
   ).on "ajax:error", (e, xhr, status, error) ->
     validateForm()
     showError('Please fill in all fields')
+    $('#btn-task').prop('disabled', false)
 
 $(document).ready(ready)
 $(document).on('page:load', ready)
