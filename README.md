@@ -20,8 +20,14 @@ Steps:
 
 * bundle install
 * configure database access
-* mv application.yml.example application.yml
-* configure websocket
-* start ws server ws_pass="password" thin -R socky/config.ru -p3001 start
+
 * rake db:migrate
 * rails s
+
+
+Steps for websocket server:
+* go to socky folder
+* bundle install
+* mv application.yml.example application.yml
+* configure websocket
+* start ws server -> ws_pass="password" thin -R socky/config.ru -p3001 start

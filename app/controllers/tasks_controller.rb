@@ -55,5 +55,7 @@ class TasksController < ApplicationController
 
   def push(event, data)
     set_ws.trigger!(event, channel: @list.slug, data: data)
+  rescue StandardError
+    logger.debug 'Websocket server not working'
   end
 end
