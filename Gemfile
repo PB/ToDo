@@ -17,6 +17,7 @@ gem 'squeel'
 gem 'awesome_print'
 gem 'figaro'
 # Socky
+gem 'socky-server'
 gem 'socky-client'
 group :development do
   gem 'web-console', '~> 2.0'
